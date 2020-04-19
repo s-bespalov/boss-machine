@@ -11,6 +11,7 @@ minionsRouter.param('minionId', (req, res, next, id) => {
     req.minion = minion;
     return next();
   }
+
   res.status(404).send();
 })
 
@@ -21,7 +22,7 @@ minionsRouter.route('/')
   })
   .post((req, res, next) => {
     const newMinion = db.addToDatabase(model, req.body);
-    if(newMinion){
+    if(newMinion) {
       res.status(201).send(newMinion);
     } else {
       res.status(400).send();
@@ -44,7 +45,7 @@ minionsRouter.route('/:minionId')
   .delete((req, res, next) => {
     const deletedMinion = db.deleteFromDatabasebyId(model, req.minionId);
     if (deletedMinion) {
-      res.status(204).send(deletedMinion);
+      res.status(204).send();
     } else {
       res.status(400).send();
     }

@@ -45,7 +45,6 @@ ideasRouter.route('/:ideaId')
   .delete((req, res, next) => {
     const deletedIdea = db.deleteFromDatabasebyId(model, req.ideaId);
     if (deletedIdea) {
-      console.log(deletedIdea);
       res.status(204).send();
     } else {
       res.status(400).send();

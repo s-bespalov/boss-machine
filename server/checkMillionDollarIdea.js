@@ -1,11 +1,8 @@
 const checkMillionDollarIdea = (req, res, next) => {
-
   const weeklyRevenue = Number(req.body.weeklyRevenue);
   const numWeeks = Number(req.body.numWeeks);
-
   const correct = weeklyRevenue !== Number.NaN && numWeeks !== Number.NaN;
   if (correct && (numWeeks * weeklyRevenue >= 1000000)) {
-
     return next();
   }
 
